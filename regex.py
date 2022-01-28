@@ -165,8 +165,127 @@ test_string3 = 'hello 123_'
 # for match in matches4:
 #     print(match)
 
-#for 0-9 and a-z
+#for 0-9 or a-z
 # pattern5 = re.compile(r"[0-9a-z]")
 # matches5 = pattern5.finditer(test_string3)
 # for match in matches5:
+#     print(match)
+
+
+#06 Quantifiers
+test_string4 = "hello_1_2_3"
+
+# * zero or more
+# pattern = re.compile(r"\d*")
+# matches = pattern.finditer(test_string4)
+# for match in matches:
+#     print(match)
+
+# + one or more
+# pattern = re.compile(r"\d+")
+# matches = pattern.finditer(test_string4)
+# for match in matches:
+#     print(match)
+
+# ? optinal
+# pattern = re.compile(r"_?\d")
+# matches = pattern.finditer(test_string4)
+# for match in matches:
+#     print(match)
+
+# {} give a range
+test_string5 = "hello_123456"
+# pattern = re.compile(r"\d{1,4}")
+# matches = pattern.finditer(test_string5)
+# for match in matches:
+#     print(match)
+
+dates = """
+01.04.2020
+
+2020.04.01
+
+2020-04-01
+2020-05-23
+2020-06-11
+2020-07-11
+2020-08-11
+
+2020/04/02
+
+2020_04_04
+2020_04_04
+"""
+
+# pattern = re.compile(r"\d{4}[-/]0[5-7][-/]\d{2}")
+# matches = pattern.finditer(dates)
+#
+# for match in matches:
+#     print(match)
+
+
+#07 Conditions
+my_string = """
+hello world
+1223
+2020-05-20
+Mr Simpson
+Mrs Simpson
+Mr. Brown
+Ms Smith
+Mr. T
+
+Python-engineer@gmx.de
+Python-engineer123@gmail.com
+python-engineer123@my-domain.org
+"""
+
+# pattern = re.compile(r"(Mr|Mrs|Ms)\.?\s\w+")
+# matches = pattern.finditer(my_string)
+# for match in matches:
+#     print(match)
+
+#08 Grouping
+# pattern = re.compile(r"([a-zA-Z0-9-]+)@([a-z-]+)\.([a-z]+)")
+# matches = pattern.finditer(my_string)
+# for match in matches:
+#     print(match.group(2))
+
+
+#Modification
+
+#split() method will split the string into a list
+test_string6 = '123abc456789abc123ABC'
+# pattern = re.compile(r"")
+# splitted = pattern.split(test_string6)
+# print(splitted)
+
+#sub() method will find the match and replace
+test_string7 = "hello world, you are the best world"
+# pattern = re.compile(r"world")
+# subbed_string = pattern.sub("planet", test_string7)
+# print(subbed_string)
+
+
+#find url and only print the actual domain name
+urls = """
+http://python-engineer.com
+https://www.python-engineer.com
+http://www.pyeng.net
+"""
+# pattern = re.compile(r"https?://(www\.)?([a-zA-Z-]+)(\.[a-zA-Z]+)")
+# matches = pattern.finditer(urls)
+#
+# for match in matches:
+#     print(match.group(1))
+
+# subbed_urls = pattern.sub(r"\2\3", urls)
+# print(subbed_urls)
+
+#10 Compilation flags
+#IGNORECASE when we not sure whether our string is lower or uppercases we can use this re.IGNORECASE
+# my_string2 = "Hello World"
+# pattern = re.compile(r"world",re.IGNORECASE)
+# matches = pattern.finditer(my_string2)
+# for match in matches:
 #     print(match)
